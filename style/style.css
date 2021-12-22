@@ -1,0 +1,35 @@
+form{
+    width: 400px;
+    height: 500px;
+    margin: auto;
+    background-color: #ce0033;
+    border-radius: 10px;
+    overflow: hidden;
+}
+label{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    size: 5px;
+    color: white;
+    display: block;
+    justify-content: center;
+    padding: 3px;
+}
+.input-box{
+    padding: 3px;
+    margin-top: 5px;
+}
+legend{
+    text-align: center;
+    color: white;
+    margin-top: 10px;
+}
+.costum-info{
+    justify-content: center;
+    display: block;
+    text-align: center;
+}
+p{
+    margin-left: 150px;
+    color: white;
+    margin-top: 4px;
+}

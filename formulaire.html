@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="style/style.css">
+    <title>Formulaire</title>
+</head>
+
+<body>
+    <form>
+        <legend>FORMULAIRE</legend>
+        <div class="costum-info">
+            <div class="input-box">
+                <label for="">Nom</label>
+                <input type="text" name="nom" placeholder="veuillez entrer votre nom">
+            </div>
+            <div class="input-box">
+                <label for="">Prenom</label>
+                <input type="text" name="prenom" placeholder="veuillez entrer votre prenom">
+            </div>
+            <div class="input-box">
+                <label for="">Email</label>
+                <input type="email" name="email" placeholder="veuillez entrer votre email">
+            </div>
+            <div class="input-box">
+                <label for="">Niveau</label>
+                <select name="niveau" id="">
+                    <option value="licenec1">Licence1</option>
+                    <option value="licence2">Licence2</option>
+                    <option value="licence3">Licence3</option>
+                </select>
+            </div>
+            <div class="input-box">
+                <label for="">Choisir un photo</label>
+                <input class="form-control" type="file" id="formFile">
+            </div>
+            <div class="input-box">
+                <label for="">Biographie:</label>
+                <textarea name="biographie"></textarea>
+            </div>
+            <p>
+                <span id="text-progress">00</span> /130
+            </p>
+            <button type="button" class="btn btn-secondary">Ajouter</button> 
+        </div>
+    </form>
+
+
+  
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
