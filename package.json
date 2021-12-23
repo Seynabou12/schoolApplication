@@ -1,0 +1,27 @@
+{
+  "name": "schoolapplication",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack --mode development",
+    "serve": "live-server --entry-file=./formulaire.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Seynabou12/schoolApplication.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Seynabou12/schoolApplication/issues"
+  },
+  "homepage": "https://github.com/Seynabou12/schoolApplication#readme",
+  "devDependencies": {
+    "live-server": "^1.2.1",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1"
+  }
+}
