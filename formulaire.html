@@ -7,65 +7,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
     <link rel="stylesheet" href="style/style.css">
     <title>Formulaire</title>
 </head>
 
 <body>
-    <div class="row">
-        <div class="col-lg-5 col-md-6 col-sm-12 containe">
+    <div class="row justify-content-evenly">
+        <div class="col-5 containe">
             <div class="title">Formulaire</div>
             <form id="formulaire">
                 <div class="user-details">
                     <div class="input-box">
-                        <span class="details">Nom</span>
-                        <input type="text" placeholder="Entrez votre nom" id="nom" required>
+                        <labelclass="details">Nom</label>
+                        <input type="text" placeholder="votre nom" id="nom" >
                     </div>
                     <div class="input-box">
-                        <span class="details">Prenom</span>
-                        <input type="text" placeholder="Entrez votre Prenom" id="prenom" required>
+                        <label class="details">Prenom</label>
+                        <input type="text" placeholder="votre Prenom" id="prenom" >
                     </div>
                     <div class="input-box">
-                        <span class="details">Email</span>
-                        <input type="email" placeholder="Entrez votre nos" id="email" required>
+                        <label class="details">Email</label>
+                        <input type="email" placeholder="votre email" id="email" >
                     </div>
                     <div class="input-box">
-                        <span class="details">Biographie</span>
+                        <label class="details">Biographie</label>
                         <textarea class="form-control" id="biographie" rows="3"></textarea>
                         <p id="limite-text">
                             <span id="text-progress">00 </span> / 130
                         </p>
                     </div>
                     <div class="input-box">
-                        <span class="details">photo</span>
+                        <label class="details">Un fichier</label>
                         <input class="form-control" type="file" id="photo">
                     </div>
                     <div class="input-box">
-                        <span class="details">Niveaux</span>
+                        <label class="details">Niveaux</label>
                         <select name="" id="niveau">
-                            <option value="">Avancé(e)</option>
-                            <option value=""> Intermédiaire</option>
-                            <option value=""> à Bas niveau</option>
+                            <option value="Avancé(e)">Avancé(e)</option>
+                            <option value="Intermédiaire">Intermédiaire</option>
+                            <option value="Bas niveau">Bas niveau</option>
                         </select>
                     </div>
                 </div>
+                <br>
+                <span id="error"></span>
                 <div class="button">
                     <input type="submit" value="ajouter">
                 </div>
             </form>
         </div>
-        <div class="col-lg-6 col-md-6 col-sm-12">
-            <h1>hello</h1>
+        <div class="col-5 d-flex flex-column carte ">
+            <h6>LES APPRENANTS</h6>
         </div>
     </div>
-
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
     <script src="../dist/app.js"></script>
-
 </body>
-
 </html>

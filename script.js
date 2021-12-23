@@ -6,31 +6,47 @@ const positionElement = document.getElementById("formulaire")
 const inputNom = document.querySelector("#nom")
 const inputPrenom = document.querySelector("#prenom")
 const inputEmail = document.querySelector("#email")
-const inputTelephone = document.querySelector("#telephone")
+const inputNiveau = document.querySelector("#niveau")
 const inputBiographie = document.querySelector("#biographie")
+const carteContainer = document.querySelector(".carte")
 
 // RECUPERATION DES INFORMAIONS DU FORMULAIRE
 positionElement.addEventListener("submit", (event) => {
     event.preventDefault()
-  
+    if (inputNom.value.trim() == "") {
+      const error = document.getElementById("error")
+      error.innerHTML = "Tous les champs sont requis"
+      error.style.color = "red"
+      
+    }
     // Récupération des informations saisies
-    const prenomSaisi = inputNom.value
-    const nomSaisi = inputPrenom.value
+    const nomSaisi = inputNom.value
+    const prenomSaisi = inputPrenom.value
     const emailSaisi = inputEmail.value
-    const telephoneSaisi = inputTelephone.value
     const biographieSaisi = inputBiographie.value
-
-    // if (nomSaisi.trim().length < 5 || prenomSaisi.trim().length < 10 || emailSaisi.trim().length < 10
-    // || telephoneSaisi.trim().length < 10 || biographieSaisi.trim().length < 10) {
-    //  nomSaisi.classList.add('invalid')
-    //   prenomSaisi.classList.add('invalid')
-    //   emailSaisi.classList.add('invalid')
-    //   telephoneSaisi.classList.add('invalid')
-    //   biographieSaisi.classList.add('invalid')
-    //   alert("Merci de saisir des informations correctes")
-    //   return
-    // }
-
+    const niveauSaisi = inputNiveau.value
+    console.log(nomSaisi, prenomSaisi, emailSaisi, niveauSaisi, biographieSaisi);
+    const newApprenant = {
+      prenom:prenomSaisi,
+      nom:nomSaisi,
+      biographie:biographieSaisi,
+      niveau:niveauSaisi
+    }
+    carteApprenant(newApprenant)
   })
-  
+
+  function carteApprenant (apprenant){
+    carteContainer.insertAdjacentHTML("beforeend", `
+    <div class="card mt-3">
+                <div class="profil">
+                    <img src="./images/image.jpg" alt="" srcset="">
+                </div>
+                <div class="profil-main">
+                <h6 class="profil-nom">${apprenant.nom} ${apprenant.prenom}</h6>
+                <p class="profil-body">${apprenant.biographie}</p>
+                <br>
+                <p class="profil-position">${apprenant.niveau}</p>
+                </div>
+            </div>`)
+  }
 
