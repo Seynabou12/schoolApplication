@@ -103,7 +103,6 @@ form .button input:hover{
     font-size: 2rem;
     line-height: 1;
     letter-spacing: 1px;
-
 }
 .profil-nom::after{
     content: "";
@@ -115,27 +114,30 @@ form .button input:hover{
 }
 .carte{
     line-height: 1;
-    display: grid;
-    place-items: center;
+    display: flex;
 }
 .card{
     box-shadow: 0 0 20px rgb(0, 0, 0.2);
-    width: 80%;
-    flex-direction: column;
+    width: 100%;
     background-color: rgb(255, 255, 255);
     color: black;
     text-align: center;
-    padding: 2em;
-    height: 40%;
+    padding: 1em;
+}
+.profil{
+    width: 100%;
 }
 .profil img{
-    width: 50px;
-    height: 50px;
+    margin-right: 0;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
 }
 .profil-position{
     margin: 0;
+    text-align: right;
     letter-spacing: 3px;
+    font-style: "bold";
     color: #ce0033;
     opacity: 0.35;
     margin-bottom: 2em;
@@ -147,4 +149,21 @@ form .button input:hover{
 }
 .profil-main h6{
     font-size: 15px;
+}
+.edit{
+    color: blue;
+    width: 50px;
+    height: 30px;
+    margin-left: 80px;
+}
+.trash-icon{
+    color: red;
+    width: 50px;
+    height: 30px;
+}
+.bi-trash{
+    padding: 1.25rem;
+}
+.bi-pencil{
+    padding: 1.25rem;
 }
