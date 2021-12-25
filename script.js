@@ -2,20 +2,22 @@ const API_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdC
 const API_URL = "https://begawfkjokyyfiqpcwzp.supabase.co/rest/v1/Apprenant";
 
 //Récuperer les éléments du DOM
-let erreur = ""
+var error
 const listApprenant = []
 const positionElement = document.getElementById("formulaire")
+// console.log(positionElement);
 const inputNom = document.querySelector("#nom")
 const inputPrenom = document.querySelector("#prenom")
 const inputEmail = document.querySelector("#email")
 const inputNiveau = document.querySelector("#niveau")
 const inputBiographie = document.querySelector("#biographie")
+const inputPhoto = document.querySelector("photo")
 const carteContainer = document.querySelector(".carte")
 const sauvegarde = document.querySelector(".save")
 const enregistrer = document.querySelector("#sauvegarde")
 
 
-// RECUPERATION DES INFORMAIONS DU FORMULAIRE
+// RECUPERATION DES INFORMATIONS DU FORMULAIRE
 positionElement.addEventListener("submit", (event) => {
     event.preventDefault()
     if (inputNom.value.trim() == "" || inputPrenom.value.trim() == "" || 
@@ -24,26 +26,7 @@ positionElement.addEventListener("submit", (event) => {
       error.innerHTML = "Tous les champs sont requis"
       error.style.color = "red"
     }
-    // if (!inputBiographie.value) {
-    //   erreur = "Veuillez renseigner une biographie"
-    // }
-    // if (!inputEmail.value) {
-    //   erreur = "Veuillez renseigner un email"
-    // }
-    // if (!inputPrenom.value) {
-    //   erreur = "Veuillez renseigner un prenom"
-    // }
-    // if (!inputNom.value) {
-    //   erreur = "Veuillez renseigner un nom"
-    // }
-    // if (erreur) {
-    //   event.preventDefault()
-    //   document.getElementById('erreur').innerHTML = erreur
-    //   return false;
-    // }
-    // else{
-    //   alert("Apprenant ajouter avec succé")
-    // }
+
   // Récupération des informations saisies
     const nomSaisi = inputNom.value
     const prenomSaisi = inputPrenom.value
@@ -51,15 +34,17 @@ positionElement.addEventListener("submit", (event) => {
     const biographieSaisi = inputBiographie.value
     const niveauSaisi = inputNiveau.value
     const newApprenant = {
-      prenom:prenomSaisi,
-      nom:nomSaisi,
-      email:emailSaisi,
-      biographie:biographieSaisi,
-      niveau:niveauSaisi
-    }
+            prenom:prenomSaisi,
+            nom:nomSaisi,
+            email:emailSaisi,
+            biographie:biographieSaisi,
+            niveau:niveauSaisi
+          }
     carteApprenant(newApprenant)
     positionElement.reset()
   })
+
+  //Affichage de la carte
   function carteApprenant (apprenant){
     let id = Math.random().toString()
     sauvegarde.insertAdjacentHTML("beforeend", `
@@ -81,6 +66,7 @@ positionElement.addEventListener("submit", (event) => {
             <p class="profil-position">${apprenant.niveau}</p>
             </div>
         </div>`)
+
         //Suppression des cartes en local
         let card = document.querySelector(`.card[id="${id}"]`)
         const supprimer = card.querySelector(".bi-trash") 
@@ -88,9 +74,9 @@ positionElement.addEventListener("submit", (event) => {
           e.target.parentElement.parentElement.parentElement.remove()
         })
         
-        //Modification de la carte en local
-        const modifier = card.querySelector(".bi-pencil")
-        modifier.addEventListener('click', (event) => {
+          //Modification de la carte en local
+          const modifier = card.querySelector(".bi-pencil")
+          modifier.addEventListener('click', (event) => {
 
           const nom = card.querySelector(".profil-nom").dataset.nom
           const prenom = card.querySelector(".profil-nom").dataset.prenom
@@ -105,12 +91,26 @@ positionElement.addEventListener("submit", (event) => {
           inputNiveau.value=niveau
         }) 
       }
-  
-   
-          
-      
-      
 
-      
-      
+    // Verifiation des mots saisis
+    inputBiographie.addEventListener("input", (event) => {
+    const longueurMax = 130
+    const contenuSaisi = inputBiographie.value
+    const longueurSaisi = contenuSaisi.length
+    const reste = longueurMax - longueurSaisi
 
+    //actualiser le dom pour afficher le nombre
+    const paragraph = document.getElementById("limit")
+    const text = document.getElementById("progress")
+    const ajout = document.querySelector(".btn-ajout")
+    text.textContent = longueurSaisi
+
+    if (reste <= 5) {
+      paragraph.style.color = "#ce0033"
+      ajout.disabled = false
+    } else {
+      paragraph.style.color = "#00000"
+      ajout.disabled = false
+    }
+
+  })
