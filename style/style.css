@@ -1,15 +1,35 @@
-
 body{
     height: 100vh;
     font-size: 10px;
     align-items: center;
-      background: linear-gradient(135deg, #e9c4cd, #dbd8d9);
+    background: linear-gradient(135deg, #f8f5f6, #dbd8d9);
+}
+.alert{
+    background: linear-gradient(135deg, #ffb4b4, #f3c3db);
+}
+.alert h6{
+    color: white;
+}
+.header svg{
+    margin-left: 60%;
 }
 .containe{
     margin-top: 5px;
     background: #fff;
     border-radius: 5px;
     box-shadow: 0 0 20px rgb(0, 0, 0.2);
+}
+.title{
+    font-size: 25px;
+    font-weight: 500;
+}
+.title::after{
+    content: '';
+    display: block;
+    bottom: 0;
+    height: 3px;
+    width: 30px;
+    background: linear-gradient(135deg, #ce0033, #ee7795);
 }
 .containe .title{
     font-size: 25px;
@@ -38,112 +58,21 @@ body{
      width: 30%;
      color: #FFF;
      justify-content: center;
-     margin-left: 70px;
      font-size: 10px;
      font-weight: 500;
      border-radius: 5px;
      background: linear-gradient(135deg, #ce0033, #ee7795);
 }
-/* .containe form .user-details{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin: 20px 0 12px  0;  
-}
-form .user-details .input-box{
-    margin-bottom: 15px;
-    width: calc(100% / 2 - 20px);
-}
-.user-details .input-box .details{
-    display: block;
-    font-weight: 500;
-    margin-bottom: 5px;
-}
-.user-details .input-box input{
-    height: 30px;
-    width: 100%;
-    outline-color: none;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    padding-left: 15px;
-    font-size: 16px;
-    border-bottom-width: 2px;
-    transition: all 0.3s ease;
-    font-size: 10px;
-}
-form select  option{
-    width: 50%;
-}
-.user-details .input-box input:focus,
-.user-details .input-box input:valid{
-    border-color: green;
-}
-.user-details .input-box input:invalid{
-    border-color: #ce0033;
-}
-form .niveau-details .niveau-title{
-    font-size: 10px;
-    font-weight: 500;
-}
-form .niveau-details .category{
-    width: 80%;
-    display: flex;
-    margin: 14px 0;
-    justify-content: space-between;
-}
-.niveau-details .category label{
-    display: flex;
-    align-items: center;
-}
-.niveau-details .category .niveau1{
-    height: 10px;
-    width: 10px;
-    background: gray;
-    border-radius: 50%; 
-    margin-right: 10px;
-    border: 5px solid transparent;
-    transition: all 0.3 ease;
-}
-form .button{
-    height: 45px;
-    width: 45px 0;
-}
-.btn-ajout{
-    height: 70%;
+.btn-save{
     width: 30%;
-     color: #FFF;
-     justify-content: center;
-     font-size: 10px;
-     font-weight: 500;
-     border-radius: 5px;
-     background: linear-gradient(135deg, #ce0033, #ee7795);
+    color: #FFF;
+    justify-content: center;
+    margin-left: 70px;
+    font-size: 10px;
+    font-weight: 500;
+    border-radius: 5px;
+    background: linear-gradient(135deg, #ce0033, #ee7795);
 }
-.btn-edit{
-     height: 70%;
-     width: 30%;
-     color: #FFF;
-     justify-content: center;
-     font-size: 10px;
-     font-weight: 500;
-     border-radius: 5px;
-     background: linear-gradient(135deg, #ce0033, #ee7795);
-}
-form .button input:hover{
-    background: linear-gradient(-135deg, #ce0033, #ee7795);
-}
-.profil-nom{
-    font-size: 2rem;
-    line-height: 1;
-    letter-spacing: 1px;
-}
-.profil-nom::after{
-    content: "";
-    display: block;
-    height: 1px;
-    width: 2rem;
-    background-color: #ce0033;
-    margin: 0.7em auto 0.5em;
-} */
 form .form-group input{
     font-size: 10px;
 }
@@ -158,32 +87,38 @@ form .form-group input{
 .carte{
     line-height: 1;
     display: flex;
+    flex-wrap: wrap;
 }
 .card{
     box-shadow: 0 0 20px rgb(0, 0, 0.2);
-    width: 100%;
+    width: 80%;
     background-color: rgb(255, 255, 255);
     color: black;
     text-align: center;
-    padding: 1em;
+    display: block;
+}
+input{
+    border: 10px solid red;
+}
+select option{
+    font-size: 10px;
 }
 .profil{
     width: 100%;
+    display: flex;
+    margin-left: 2Opx;
+}
+.photo{
+    width: 40px;
+    height: 40px;
 }
 .profil img{
-    margin-right: 0;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
+    width: 20px;
+    height: 20px;
 }
 .profil-position{
     margin: 0;
     text-align: right;
-    letter-spacing: 3px;
-    font-style: "bold";
-    color: #ce0033;
-    opacity: 0.35;
-    margin-bottom: 2em;
 }
 .profil-body{
     font-weight: 300;
@@ -193,20 +128,13 @@ form .form-group input{
 .profil-main h6{
     font-size: 15px;
 }
-.edit{
-    color: blue;
-    width: 50px;
-    height: 30px;
-    margin-left: 80px;
+.cacher{
+    display: none;
 }
-.trash-icon{
-    color: red;
-    width: 50px;
-    height: 30px;
+.liste{
+    background-color: #ce0033;
+    color: white;
 }
-.bi-trash{
-    padding: 1.25rem;
-}
-.bi-pencil{
-    padding: 1.25rem;
-}
+
+
+
