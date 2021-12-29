@@ -17,7 +17,7 @@ const enregistrer = document.querySelector("#sauvegarde")
 const ajout = document.querySelector(".btn-ajout")
 const btnModifier = document.querySelector(".btn-edit")
 const redirection = document.querySelector(".liste")
-const tab = []
+let tab = []
 
 
 // RECUPERATION DES INFORMATIONS DU FORMULAIRE
@@ -73,8 +73,6 @@ function carteApprenant(apprenant, index) {
   const supprimer = card.querySelector(".bi-trash")
   supprimer.addEventListener('click', (e) => {
     // e.target.parentElement.parentElement.parentElement.remove()
-    
-
     //mettre a jour modifier
     card.remove()
     tab.splice(index, 1)
@@ -159,7 +157,8 @@ inputBiographie.addEventListener("input", (event) => {
 
 //Envoie des données vers la base de donnée supabase
 enregistrer.addEventListener("click", (event) => {
-  tab.forEach((element) => {
+  const cartes = document.querySelectorAll(".card")
+  tab.forEach((element, index) => {
     fetch(API_URL, {
       method: "POST",
       headers: {
@@ -169,5 +168,11 @@ enregistrer.addEventListener("click", (event) => {
       },
       body: JSON.stringify(element),
     })
+    .then(()=>{
+      cartes[index].remove()
+    })
   })
+  tab = []
+
+
 }) 
