@@ -13,7 +13,6 @@
 </head>
 
 <body>
-
     <div class="alert container mt-2">
         <div class="header d-flex">
             <h4 class="alert-heading mt-4">SCHOOL APP</h4>
@@ -24,8 +23,8 @@
         </div>
         <h6 class="mb-2">Formulaire d'inscription et Affichage des Informations de l'Apprenants</h6>
     </div>
-    <div class="row justify-content-evenly contenu">
-        <div class="col-5 containe mt-4">
+    <div class="row justify-content-evenly">
+        <div class=" col-5 containe mt-4">
             <div class="title">Formulaire</div>
             <form id="formulaire">
                 <div class="form-group">
@@ -63,13 +62,13 @@
                 </div>
                 <span class="error"></span>
                 <button type="submit" class="btn btn-ajout mt-2 mb-1 float-end" id="ajoute">Ajouter</button>
-                <button type="button" class="btn btn-edit mt-3 cacher" id="Modifie">Modifier</button>
+                <button type="button" class="btn btn-edit mt-3 d-none" id="Modifie">Modifier</button>
             </form>
         </div>
-        <div class="col-5 d-flex flex-column carte">
-            <div class="title mt-4">Les Apprenants</div>
+        <div class=" col-5 mt-4 carte">
+            <div class="title">Les Apprenants</div>
             <div class="save"></div>
-            <button type="submit" class="btn btn-save" id="sauvegarde">Sauvegarder</button>
+        <button type="submit" class="btn btn-save" id="sauvegarde">Sauvegarder</button>
         </div>
     </div>
     <a href="listDetail.html"><button type="button" class="liste mt-4 ms-4 btn">Voir la Liste</button></a>
@@ -79,5 +78,4 @@
         crossorigin="anonymous"></script>
     <script src="../dist/app.js"></script>
 </body>
-
 </html>

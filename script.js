@@ -4,7 +4,7 @@ const API_URL = "https://begawfkjokyyfiqpcwzp.supabase.co/rest/v1/Apprenant"
 //Récuperer les éléments du DOM
 var error
 const listApprenant = []
-const positionElement = document.getElementById("formulaire")
+const formulaire = document.getElementById("formulaire")
 const inputNom = document.querySelector("#nom")
 const inputPrenom = document.querySelector("#prenom")
 const inputEmail = document.querySelector("#email")
@@ -16,47 +16,51 @@ const sauvegarde = document.querySelector(".save")
 const enregistrer = document.querySelector("#sauvegarde")
 const ajout = document.querySelector(".btn-ajout")
 const btnModifier = document.querySelector(".btn-edit")
-const redirection =  document.querySelector(".liste")
+const redirection = document.querySelector(".liste")
+const tab = []
 
 
 // RECUPERATION DES INFORMATIONS DU FORMULAIRE
-positionElement.addEventListener("submit", (event) => {
-    event.preventDefault()
-    if (inputNom.value.trim() == "" || inputPrenom.value.trim() == "" || 
+formulaire.addEventListener("submit", (event) => {
+  event.preventDefault()
+  if (inputNom.value.trim() == "" || inputPrenom.value.trim() == "" ||
     inputEmail.value.trim() == "") {
-      const error = document.getElementById("error")
-      error.innerHTML = "Tous les champs sont requis"
-      error.style.color = "red"
-    }
+    const error = document.getElementById("error")
+    error.innerHTML = "Tous les champs sont requis"
+    error.style.color = "red"
+    return
+  }
 
   // Récupération des informations saisies
-    const nomSaisi = inputNom.value
-    const prenomSaisi = inputPrenom.value
-    const emailSaisi = inputEmail.value
-    const biographieSaisi = inputBiographie.value
-    const niveauSaisi = inputNiveau.value
-    const newApprenant = {
-            prenom:prenomSaisi,
-            nom:nomSaisi,
-            email:emailSaisi,
-            biographie:biographieSaisi,
-            niveau:niveauSaisi
-          }
-    carteApprenant(newApprenant)
-    positionElement.reset()
-  })
-  //Affichage de la carte
-  function carteApprenant (apprenant){
-    let id = Math.random().toString()
-    sauvegarde.insertAdjacentHTML("beforeend", `
-        <div class="card mt-3  mb-3" id="${id}">
-          <div class="profil mt-2 ">
+  const nomSaisi = inputNom.value
+  const prenomSaisi = inputPrenom.value
+  const emailSaisi = inputEmail.value
+  const biographieSaisi = inputBiographie.value
+  const niveauSaisi = inputNiveau.value
+  const newApprenant = {
+    prenom: prenomSaisi,
+    nom: nomSaisi,
+    email: emailSaisi,
+    biographie: biographieSaisi,
+    niveau: niveauSaisi
+  }
+  tab.push(newApprenant);
+  console.log(tab);
+  carteApprenant(newApprenant, tab.length-1)
+  formulaire.reset()
+})
+//Affichage de la carte
+function carteApprenant(apprenant, index) {
+  let id = Math.random().toString()
+  sauvegarde.insertAdjacentHTML("beforeend", `
+        <div class="card mt-2" id="${id}">
+          <div class="profil mt-2 justify-content-evenly">
               <p><img src="./images/nabou.png" alt="" srcset="" class="photo">${apprenant.photo}</p>
               <img src="./images/pencil.png" class="bi bi-pencil">
               <div class="trash-icon"><img src="./images/trash.png" class="bi bi-trash"></div>
           </div>
             <div class="card-body profil-main">
-              <h6 class="profil-nom" data-nom="${apprenant.nom}" data-prenom="${apprenant.prenom}" ><span class="app-nom">${apprenant.nom}</span> <span class="app-prenom">${apprenant.prenom}</span></h6>
+              <h6 class="nom-complet" data-nom="${apprenant.nom}" data-prenom="${apprenant.prenom}" >${apprenant.prenom} ${apprenant.nom}</h6>
               <p class="email">${apprenant.email}</p>
               <p class="profil-body">${apprenant.biographie}</p>
               <br>
@@ -64,87 +68,106 @@ positionElement.addEventListener("submit", (event) => {
             </div>
         </div>`)
 
-        //Suppression des cartes en local
-        let card = document.querySelector(`.card[id="${id}"]`)
-        const supprimer = card.querySelector(".bi-trash") 
-        supprimer.addEventListener('click', (e) => {
-          e.target.parentElement.parentElement.parentElement.remove()
-          if(confirm("voulez-vous vraiment supprimer cette carte")){}
-        })
-        
-          //Modification de la carte en local
-          const modifier = card.querySelector(".bi-pencil")
-          modifier.addEventListener('click', (event) => {
-          ajout.classList.add("cacher")
-          btnModifier.classList.remove("cacher")
-          if(confirm("voulez-vous vraiment modifier cette carte")){}
-          const nom = card.querySelector(".profil-nom").dataset.nom
-          const prenom = card.querySelector(".profil-nom").dataset.prenom
-          const appNom = card.querySelector(".app-nom")
-          const appPrenom = card.querySelector(".app-prenom")
-          const email = card.querySelector(".email").textContent
-          const Email = card.querySelector(".email")
-          const Bio = card.querySelector(".profil-body")
-          const bio = card.querySelector(".profil-body").textContent
-          const niveau = card.querySelector(".profil-position").textContent
-          const Niveau = card.querySelector(".profil-position")
-          
-          inputNom.value = nom
-          inputPrenom.value = prenom
-          inputEmail.value = email
-          inputBiographie.value = bio
-          inputNiveau.value = niveau
-          // inputPhoto.value = photo
+  //Suppression des cartes en local
+  let card = document.querySelector(`.card[id="${id}"]`)
+  const supprimer = card.querySelector(".bi-trash")
+  supprimer.addEventListener('click', (e) => {
+    // e.target.parentElement.parentElement.parentElement.remove()
+    
 
-          btnModifier.addEventListener("click", (event) => {
-            btnModifier.classList.add("cacher")
-            ajout.classList.remove("cacher")
-            apprenant.nom = inputNom.value
-            apprenant.prenom = inputPrenom.value
-            apprenant.email = inputEmail.value
-            apprenant.biographie = inputBiographie.value
-            apprenant.niveau = inputNiveau.value
-
-            appNom.textContent = apprenant.nom
-            appPrenom.textContent =  apprenant.prenom
-            Email.textContent = apprenant.email
-            Bio.textContent = apprenant.biographie
-            Niveau.textContent = apprenant.niveau
-          })
-        }) 
-      }
-
-    // Verifiation des mots saisis
-    inputBiographie.addEventListener("input", (event) => {
-    const longueurMax = 130
-    const contenuSaisi = inputBiographie.value
-    const longueurSaisi = contenuSaisi.length
-    const reste = longueurMax - longueurSaisi
-
-    //actualiser le dom pour afficher le nombre
-    const paragraph = document.getElementById("limit")
-    const text = document.getElementById("progress")
-    text.textContent = longueurSaisi
-
-    if (reste <= 5) {
-      paragraph.style.color = "#ce0033"
-      ajout.disabled = false
-    } else {
-      paragraph.style.color = "#00000"
-      ajout.disabled = false
-    }
+    //mettre a jour modifier
+    card.remove()
+    tab.splice(index, 1)
+    console.log(tab);
+    if (confirm("voulez-vous vraiment supprimer cette carte")) { }
   })
 
-  //Enregistrement au niveau de SUPABASE
-//   enregistrer.addEventListener("click", (event) => {
-//     event.preventDefault()
-//     //ENVOYER LES DONNEES VERS SUPABASE
-//     fetch(API_URL, {
-//     method: "POST",
-//     headers: {
-//       apikey: API_KEY,
-//       "Content-Type": "application/json",
-//     },
-//     body: JSON.stringify(newApprenant)
-//   })
-// })
+  //Modification de la carte en local
+  const modifier = card.querySelector(".bi-pencil")
+  modifier.addEventListener('click', (event) => {
+    const nomComplet =  card.querySelector(".nom-complet")
+    let nom = nomComplet.dataset.nom
+    let prenom = nomComplet.dataset.prenom
+    const Email = card.querySelector(".email")
+    const Bio = card.querySelector(".profil-body")
+    const Niveau = card.querySelector(".profil-position")
+    if (confirm("voulez-vous vraiment modifier cette carte")) { }
+    
+    inputNom.value = nom
+    inputPrenom.value = prenom
+    inputEmail.value = Email.textContent
+    inputBiographie.value = Bio.textContent
+    inputNiveau.value = Niveau.textContent
+    
+    ajout.classList.add("d-none")
+    btnModifier.classList.remove("d-none")
+    btnModifier.dataset.id = id
+    btnModifier.dataset.index = index
+  })
+}
+btnModifier.addEventListener("click", (event) => {
+  
+  let id = btnModifier.dataset.id
+  let index = btnModifier.dataset.index
+  let carte = document.getElementById(id)
+  const nomComplet =  carte.querySelector(".nom-complet")
+  const Email = carte.querySelector(".email")
+  const Bio = carte.querySelector(".profil-body")
+  const Niveau = carte.querySelector(".profil-position")
+  
+  const apprenant = {}
+  apprenant.nom = inputNom.value
+  apprenant.prenom = inputPrenom.value
+  apprenant.email = inputEmail.value
+  apprenant.biographie = inputBiographie.value
+  apprenant.niveau = inputNiveau.value
+  tab.splice(index, 1, apprenant)
+  console.log(tab);
+
+  
+  nomComplet.dataset.nom = inputNom.value
+  nomComplet.dataset.prenom = inputPrenom.value
+  nomComplet.textContent = inputNom.value + " " +inputPrenom.value
+  Email.textContent = inputEmail.value
+  Bio.textContent = inputBiographie.value
+  Niveau.textContent = inputNiveau.value
+  btnModifier.classList.add("d-none")
+  ajout.classList.remove("d-none")
+  formulaire.reset()
+})
+
+// Verifiation des mots saisis
+inputBiographie.addEventListener("input", (event) => {
+  const longueurMax = 130
+  const contenuSaisi = inputBiographie.value
+  const longueurSaisi = contenuSaisi.length
+  const reste = longueurMax - longueurSaisi
+
+  //actualiser le dom pour afficher le nombre
+  const paragraph = document.getElementById("limit")
+  const text = document.getElementById("progress")
+  text.textContent = longueurSaisi
+
+  if (reste <= 5) {
+    paragraph.style.color = "#ce0033"
+    ajout.disabled = false
+  } else {
+    paragraph.style.color = "#00000"
+    ajout.disabled = false
+  }
+})
+
+//Envoie des données vers la base de donnée supabase
+enregistrer.addEventListener("click", (event) => {
+  tab.forEach((element) => {
+    fetch(API_URL, {
+      method: "POST",
+      headers: {
+        apikey: API_KEY,
+        "content-type": "application/json",
+        prefer: "return=representation",
+      },
+      body: JSON.stringify(element),
+    })
+  })
+}) 

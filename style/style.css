@@ -15,6 +15,7 @@ body{
 }
 .containe{
     margin-top: 5px;
+    padding: 10px;
     background: #fff;
     border-radius: 5px;
     box-shadow: 0 0 20px rgb(0, 0, 0.2);
@@ -44,8 +45,6 @@ body{
     background: linear-gradient(135deg, #ce0033, #ee7795);
 }
 .btn-ajout{
-    height: 70%;
-    width: 30%;
      color: #FFF;
      justify-content: center;
      font-size: 10px;
@@ -64,12 +63,13 @@ body{
      background: linear-gradient(135deg, #ce0033, #ee7795);
 }
 .btn-save{
-    width: 30%;
+    height: 30px;
     color: #FFF;
     justify-content: center;
     margin-left: 70px;
     font-size: 10px;
     font-weight: 500;
+    margin-top: 5px;
     border-radius: 5px;
     background: linear-gradient(135deg, #ce0033, #ee7795);
 }
@@ -86,7 +86,6 @@ form .form-group input{
 }
 .carte{
     line-height: 1;
-    display: flex;
     flex-wrap: wrap;
 }
 .card{
@@ -135,6 +134,8 @@ select option{
     background-color: #ce0033;
     color: white;
 }
+
+
 
 
 
