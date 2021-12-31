@@ -108,8 +108,8 @@ select option{
     margin-left: 2Opx;
 }
 .photo{
-    width: 40px;
-    height: 40px;
+    height: auto;
+    width: 15%;
 }
 .profil img{
     width: 20px;
@@ -146,4 +146,11 @@ select option{
     text-align: center;
 }
 
+/* Détails des  Apprenants */
 
+.close{
+    color: #ce0033;
+}
+.fermer{
+    background: linear-gradient(135deg, #ce0033, #ee7795);
+}

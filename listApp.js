@@ -23,7 +23,7 @@ function carteApprenant(apprenant) {
   const cartes = document.querySelector("#cartes");
   cartes.insertAdjacentHTML(
     "beforeend",
-      `<div class="col my-4 px-5 mt-4">
+    `<div class="col my-4 px-5 mt-4">
         <div class="card mt-2" id="${id}">
           <div class="profil mt-2 justify-content-evenly">
               <p><img src="./images/nabou.png" alt="" srcset="" class="photo">${apprenant.photo}</p>
@@ -43,30 +43,43 @@ function carteApprenant(apprenant) {
             </div>
           </div>
         </div>
-      </div>`
+      </div> 
+      
+      <div class="modal fade" id="modal${id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog">
+           <div class="modal-content">
+             <div class="modal-header">
+               <h3 class="modal-title" id="modalLabel${id} align-items-center" style="font-siye:12px">Details de l'Apprenant</h3>
+               <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close"></button>
+             </div>
+           <div class="modal-body">
+            <div class="row email align-items-center" style="font-siye:12px">
+             <img src="./images/nabou.png" alt="" srcset="" class="photo">
+            </div>
+            <div class=" row name align-items-center style="font-siye:20px">
+              ${apprenant.prenom} ${apprenant.nom}
+            </div>
+            <div class="row email align-items-center" style="font-siye:12px">
+              ${apprenant.email}
+            </div>
+            <div class="row biographie align-items-center" style="font-siye:12px">
+              ${apprenant.biographie}
+            </div>
+            <div class="row niveau align-items-center" style="font-siye:12px">
+              ${apprenant.niveau}
+            </div>
+           </div>
+           <div class="modal-footer">
+            <button type="button" class="btn fermer" data-bs-dismiss="modal">Close</button>
+          </div>
+         </div>
+       </div>
+     </div>`
   );
   let card = document.querySelector(`.card[id="${id}"]`);
-  
+
   const details = document.querySelector(`#detail${id}`);
 
-  details.onclick = (event) => {
-  alert("bonjour tout le monde")
-    // cartes.insertAdjacentHTML(
-    //   "beforeend",
-    //     `<div class="modal fade" id="modal${id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    //       <div class="modal-dialog">
-    //         <div class="modal-content">
-    //           <div class="modal-header">
-    //             <h5 class="modal-title" id="exampleModalLabel">Details de l'Apprenant</h5>
-    //           </div>
-    //         <div class="modal-body">
-    //           ...
-    //         </div>
-    //       </div>
-    //     </div>
-    //   </div>`
-    // );
-  } 
 }
 
 
