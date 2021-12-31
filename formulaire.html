@@ -23,8 +23,8 @@
         </div>
         <h6 class="mb-2">Formulaire d'inscription et Affichage des Informations de l'Apprenants</h6>
     </div>
-    <div class="row justify-content-evenly">
-        <div class=" col-5 containe mt-4">
+    <div class="row justify-content-evenly row-cols-2 row-cols-md-2 row-cols-lg-3">
+        <div class="containe mt-4 ms-4 ms-sm-4 p-3">
             <div class="title">Formulaire</div>
             <form id="formulaire">
                 <div class="form-group">
@@ -54,7 +54,7 @@
                 </div>
                 <div class="form-group">
                     <label for="niveau" class="form-label mt-2">Niveau</label>
-                    <select class="form-select" id="niveau">
+                    <select class="form-select"row row-cols-1 row-cols-md-2 row-cols-lg-3 id="niveau">
                         <option>Nivau Avancé</option>
                         <option>Niveau Intermédiaire</option>
                         <option>Niveau Débutant</option>
@@ -65,9 +65,9 @@
                 <button type="button" class="btn btn-edit mt-3 d-none" id="Modifie">Modifier</button>
             </form>
         </div>
-        <div class=" col-5 mt-4 carte">
-            <div class="title">Les Apprenants</div>
-            <div class="save"></div>
+        <div class=" mt-4 carte">
+            <div class="title container mt-5">Les Apprenants</div>
+            <div class="save mt-3"></div>
         <button type="submit" class="btn btn-save" id="sauvegarde">Sauvegarder</button>
         </div>
     </div>

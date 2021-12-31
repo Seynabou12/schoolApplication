@@ -135,7 +135,15 @@ select option{
     color: white;
 }
 
+/* Liste des Apprenants */
 
-
+.titre{
+    background-color: #ce0033;
+    width: 100%;
+    height: 1OOpx;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
 
 

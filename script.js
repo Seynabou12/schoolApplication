@@ -3,7 +3,7 @@ const API_URL = "https://begawfkjokyyfiqpcwzp.supabase.co/rest/v1/Apprenant"
 
 //Récuperer les éléments du DOM
 var error
-const listApprenant = []
+//const listApprenant = []
 const formulaire = document.getElementById("formulaire")
 const inputNom = document.querySelector("#nom")
 const inputPrenom = document.querySelector("#prenom")
@@ -19,7 +19,6 @@ const btnModifier = document.querySelector(".btn-edit")
 const redirection = document.querySelector(".liste")
 let tab = []
 
-
 // RECUPERATION DES INFORMATIONS DU FORMULAIRE
 formulaire.addEventListener("submit", (event) => {
   event.preventDefault()
@@ -31,7 +30,7 @@ formulaire.addEventListener("submit", (event) => {
     return
   }
 
-  // Récupération des informations saisies
+  // RECUPERATION DES INFORMATIONS SAISIS
   const nomSaisi = inputNom.value
   const prenomSaisi = inputPrenom.value
   const emailSaisi = inputEmail.value
@@ -49,11 +48,11 @@ formulaire.addEventListener("submit", (event) => {
   carteApprenant(newApprenant, tab.length-1)
   formulaire.reset()
 })
-//Affichage de la carte
-function carteApprenant(apprenant, index) {
+//AFFICHAGE DE LA CARTE
+function carteApprenant(apprenant, index){
   let id = Math.random().toString()
   sauvegarde.insertAdjacentHTML("beforeend", `
-        <div class="card mt-2" id="${id}">
+        <div class="card mt-4" id="${id}">
           <div class="profil mt-2 justify-content-evenly">
               <p><img src="./images/nabou.png" alt="" srcset="" class="photo">${apprenant.photo}</p>
               <img src="./images/pencil.png" class="bi bi-pencil">
@@ -72,12 +71,12 @@ function carteApprenant(apprenant, index) {
   let card = document.querySelector(`.card[id="${id}"]`)
   const supprimer = card.querySelector(".bi-trash")
   supprimer.addEventListener('click', (e) => {
-    // e.target.parentElement.parentElement.parentElement.remove()
+    if (confirm("voulez-vous vraiment supprimer cette carte")) { }
+    // e.target.parentElement.parentindexElement.parentElement.remove()
     //mettre a jour modifier
     card.remove()
     tab.splice(index, 1)
     console.log(tab);
-    if (confirm("voulez-vous vraiment supprimer cette carte")) { }
   })
 
   //Modification de la carte en local
@@ -100,6 +99,7 @@ function carteApprenant(apprenant, index) {
     ajout.classList.add("d-none")
     btnModifier.classList.remove("d-none")
     btnModifier.dataset.id = id
+    console.log(id);
     btnModifier.dataset.index = index
   })
 }
@@ -122,7 +122,6 @@ btnModifier.addEventListener("click", (event) => {
   tab.splice(index, 1, apprenant)
   console.log(tab);
 
-  
   nomComplet.dataset.nom = inputNom.value
   nomComplet.dataset.prenom = inputPrenom.value
   nomComplet.textContent = inputNom.value + " " +inputPrenom.value
@@ -134,14 +133,14 @@ btnModifier.addEventListener("click", (event) => {
   formulaire.reset()
 })
 
-// Verifiation des mots saisis
+//Verifiation des mots saisis
 inputBiographie.addEventListener("input", (event) => {
   const longueurMax = 130
   const contenuSaisi = inputBiographie.value
   const longueurSaisi = contenuSaisi.length
   const reste = longueurMax - longueurSaisi
 
-  //actualiser le dom pour afficher le nombre
+  //Actualiser le dom pour afficher le nombre
   const paragraph = document.getElementById("limit")
   const text = document.getElementById("progress")
   text.textContent = longueurSaisi
@@ -173,6 +172,4 @@ enregistrer.addEventListener("click", (event) => {
     })
   })
   tab = []
-
-
 }) 
