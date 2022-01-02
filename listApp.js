@@ -16,17 +16,38 @@ function listApprenant() {
       apprenants.forEach((a) => carteApprenant(a));
     });
 }
+
 window.addEventListener("DOMContentLoaded", listApprenant);
 
 function carteApprenant(apprenant) {
   let id = apprenant.id;
   const cartes = document.querySelector("#cartes");
+ 
+  let niveauHtml = 0
+  let niveauCss = 0
+  let niveauJavaScript = 0
+
+  if (apprenant.niveau == "Niveau Intermédiaire") {
+    niveauHtml = 40
+    niveauCss = 30
+    niveauJavaScript = 20
+  }
+  else if (apprenant.niveau == "Nivau Avancé") {
+    niveauHtml = 50
+    niveauCss = 50
+    niveauJavaScript = 60
+  }
+  else {
+    niveauHtml = 20
+    niveauCss = 10
+    niveauJavaScript = 10
+  }
   cartes.insertAdjacentHTML(
     "beforeend",
-    `<div class="col my-4 px-5 mt-4">
+    `<div class="col my-4 mt-4">
         <div class="card mt-2" id="${id}">
           <div class="profil mt-2 justify-content-evenly">
-              <p><img src="./images/nabou.png" alt="" srcset="" class="photo">${apprenant.photo}</p>
+            <img src="./images/nabou.png" alt="" srcset="" class="photos">
           </div>
           <div class="card-body profil-main">
             <h6 class="nom-complet" data-nom="${apprenant.nom}" data-prenom="${apprenant.prenom}" >${apprenant.prenom} ${apprenant.nom}</h6>
@@ -49,27 +70,54 @@ function carteApprenant(apprenant) {
          <div class="modal-dialog">
            <div class="modal-content">
              <div class="modal-header">
-               <h3 class="modal-title" id="modalLabel${id} align-items-center" style="font-siye:12px">Details de l'Apprenant</h3>
+               <h3 class="modal-title" id="modalLabel${id} align-items-center">Details de l'Apprenant</h3>
                <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close"></button>
              </div>
-           <div class="modal-body">
-            <div class="row email align-items-center" style="font-siye:12px">
-             <img src="./images/nabou.png" alt="" srcset="" class="photo">
+          <div class="modal-body justify-content-center">
+            <div class="row align-items-center">
+              <img src="./images/nabou.png" alt="" srcset="" class="photo">
             </div>
-            <div class=" row name align-items-center style="font-siye:20px">
-              ${apprenant.prenom} ${apprenant.nom}
+            <br>
+            <div class= "name text-align-center text-uppercase font-weight-bold">
+              <strong> ${apprenant.prenom} ${apprenant.nom} </strong>
             </div>
-            <div class="row email align-items-center" style="font-siye:12px">
+            <br>
+            <div class=" email align-items-center">
               ${apprenant.email}
             </div>
-            <div class="row biographie align-items-center" style="font-siye:12px">
+            <br>
+            <div class=" biographie align-items-center">
               ${apprenant.biographie}
             </div>
-            <div class="row niveau align-items-center" style="font-siye:12px">
-              ${apprenant.niveau}
+            <br>
+            <div class=" niveau align-items-center font-weight-bold">
+              <strong>${apprenant.niveau}</strong>
             </div>
-           </div>
-           <div class="modal-footer">
+            <br>
+            <div class=" niveau align-items-center font-weight-bold">
+              <strong>Compétences</strong>
+            </div>
+            <br>
+              <div class="text-uppercase font-weight-bold mb-2">
+              <p class="mb-1">HTML</p>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: ${niveauHtml}%;" aria-valuenow="${niveauHtml}" aria-valuemin="0" aria-valuemax="100">${niveauHtml}%</div>
+              </div>
+              </div>
+              <div class="text-uppercase font-weight-bold mb-2">
+              <p class="mb-1">CSS</p>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style= "width: ${niveauCss}%;" aria-valuenow="${niveauCss}" aria-valuemin="0" aria-valuemax="100">${niveauCss}%</div>
+              </div>
+              </div>
+              <div class="text-uppercase font-weight-bold mb-2">
+              <p class="mb-1">JAVASCRIPT</p>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: ${niveauJavaScript}%;" aria-valuenow="${niveauJavaScript}" aria-valuemin="0" aria-valuemax="100">${niveauJavaScript}%</div>
+              </div>
+              </div>
+          </div>
+          <div class="modal-footer">
             <button type="button" class="btn fermer" data-bs-dismiss="modal">Close</button>
           </div>
          </div>
@@ -81,6 +129,8 @@ function carteApprenant(apprenant) {
   const details = document.querySelector(`#detail${id}`);
 
 }
+
+
 
 
 

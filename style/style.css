@@ -1,6 +1,5 @@
 body{
     height: 100vh;
-    font-size: 10px;
     align-items: center;
     background: linear-gradient(135deg, #f8f5f6, #dbd8d9);
 }
@@ -105,19 +104,31 @@ select option{
 .profil{
     width: 100%;
     display: flex;
-    margin-left: 2Opx;
 }
 .photo{
     height: auto;
-    width: 15%;
+    width: 30%;
 }
-.profil img{
-    width: 20px;
-    height: 20px;
+.bi-pencil{
+    width: 30px;
+    height: 30px;
+}
+.bi-trash{
+    height: 30px;
+    width: 30px;
+}
+.photos{
+    height: auto;
+    width: 20%;
+}
+img .photos{
+    height: auto;
+    width: 30%;
 }
 .profil-position{
     margin: 0;
     text-align: right;
+    font-weight: bold;
 }
 .profil-body{
     font-weight: 300;
@@ -134,23 +145,39 @@ select option{
     background-color: #ce0033;
     color: white;
 }
-
+.nom-complet{
+    text-transform: uppercase;
+    font-weight: bold;
+}
 /* Liste des Apprenants */
-
 .titre{
     background-color: #ce0033;
-    width: 100%;
     height: 1OOpx;
     color: white;
-    padding: 10px;
+    padding: 8px;
     text-align: center;
 }
-
 /* Détails des  Apprenants */
-
 .close{
     color: #ce0033;
 }
 .fermer{
     background: linear-gradient(135deg, #ce0033, #ee7795);
+}
+.modal-content{
+    border: 2px solid #ce0033;
+}
+.modal-header{
+    background: linear-gradient(135deg, #ce0033, #ee7795);
+    color: #fff;
+}
+.fermer{
+    color: #fff;
+}
+.progress{
+    box-shadow: 0 0 10px rgb(172, 168, 168);
+    border-radius: 10px;
+}
+.progress-bar{
+    background-color:#ce0033;
 }

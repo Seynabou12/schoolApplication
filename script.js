@@ -48,13 +48,14 @@ formulaire.addEventListener("submit", (event) => {
   carteApprenant(newApprenant, tab.length-1)
   formulaire.reset()
 })
+  
 //AFFICHAGE DE LA CARTE
 function carteApprenant(apprenant, index){
   let id = Math.random().toString()
   sauvegarde.insertAdjacentHTML("beforeend", `
         <div class="card mt-4" id="${id}">
           <div class="profil mt-2 justify-content-evenly">
-              <p><img src="./images/nabou.png" alt="" srcset="" class="photo">${apprenant.photo}</p>
+              <img src="./images/nabou.png" alt="" srcset="" class="photos">
               <img src="./images/pencil.png" class="bi bi-pencil">
               <div class="trash-icon"><img src="./images/trash.png" class="bi bi-trash"></div>
           </div>
