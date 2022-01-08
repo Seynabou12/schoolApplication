@@ -26,25 +26,29 @@ function carteApprenant(apprenant) {
   let niveauHtml = 0
   let niveauCss = 0
   let niveauJavaScript = 0
+  let softSkills = 0
 
   if (apprenant.niveau == "Niveau Intermédiaire") {
     niveauHtml = 40
     niveauCss = 30
     niveauJavaScript = 20
+    softSkills = 20
   }
   else if (apprenant.niveau == "Nivau Avancé") {
     niveauHtml = 50
     niveauCss = 50
     niveauJavaScript = 60
+    softSkills = 50
   }
   else {
     niveauHtml = 20
     niveauCss = 10
     niveauJavaScript = 10
+    softSkills = 10
   }
   cartes.insertAdjacentHTML(
     "beforeend",
-    `<div class="col my-4 mt-4">
+     `<div class="col my-4 mt-4">
         <div class="card mt-2" id="${id}">
           <div class="profil mt-2 justify-content-evenly">
             <img src="./images/nabou.png" alt="" srcset="" class="photos">
@@ -104,7 +108,7 @@ function carteApprenant(apprenant) {
                 <div class="progress-bar" role="progressbar" style="width: ${niveauHtml}%;" aria-valuenow="${niveauHtml}" aria-valuemin="0" aria-valuemax="100">${niveauHtml}%</div>
               </div>
               </div>
-              <div class="text-uppercase font-weight-bold mb-2">
+                <div class="text-uppercase font-weight-bold mb-2">
               <p class="mb-1">CSS</p>
               <div class="progress">
                 <div class="progress-bar" role="progressbar" style= "width: ${niveauCss}%;" aria-valuenow="${niveauCss}" aria-valuemin="0" aria-valuemax="100">${niveauCss}%</div>
@@ -116,13 +120,19 @@ function carteApprenant(apprenant) {
                 <div class="progress-bar" role="progressbar" style="width: ${niveauJavaScript}%;" aria-valuenow="${niveauJavaScript}" aria-valuemin="0" aria-valuemax="100">${niveauJavaScript}%</div>
               </div>
               </div>
+              <div class="text-uppercase font-weight-bold mb-2">
+              <p class="mb-1">SoftSkills</p>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: ${softSkills}%;" aria-valuenow="${softSkills}" aria-valuemin="0" aria-valuemax="100">${softSkills}%</div>
+              </div>
+              </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn fermer" data-bs-dismiss="modal">Close</button>
           </div>
          </div>
        </div>
-     </div>`
+    </div>`
   );
   let card = document.querySelector(`.card[id="${id}"]`);
 

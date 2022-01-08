@@ -25,7 +25,7 @@ formulaire.addEventListener("submit", (event) => {
   if (inputNom.value.trim() == "" || inputPrenom.value.trim() == "" ||
     inputEmail.value.trim() == "") {
     const error = document.getElementById("error")
-    error.innerHTML = "Tous les champs sont requis"
+    error.innerHTML = "Les champs sont requis"
     error.style.color = "red"
     return
   }
@@ -60,24 +60,23 @@ function carteApprenant(apprenant, index){
               <div class="trash-icon"><img src="./images/trash.png" class="bi bi-trash"></div>
           </div>
             <div class="card-body profil-main">
-              <h6 class="nom-complet" data-nom="${apprenant.nom}" data-prenom="${apprenant.prenom}" >${apprenant.prenom} ${apprenant.nom}</h6>
+              <h6 class="nom-complet" data-nom="${apprenant.nom}" data-prenom="${apprenant.prenom}">${apprenant.prenom} ${apprenant.nom}</h6>
               <p class="email">${apprenant.email}</p>
               <p class="profil-body">${apprenant.biographie}</p>
               <br>
               <p class="profil-position">${apprenant.niveau}</p>
             </div>
         </div>`)
-
+    
   //Suppression des cartes en local
   let card = document.querySelector(`.card[id="${id}"]`)
+  
   const supprimer = card.querySelector(".bi-trash")
   supprimer.addEventListener('click', (e) => {
     if (confirm("voulez-vous vraiment supprimer cette carte")) { }
-    // e.target.parentElement.parentindexElement.parentElement.remove()
     //mettre a jour modifier
     card.remove()
     tab.splice(index, 1)
-    console.log(tab);
   })
 
   //Modification de la carte en local
@@ -100,7 +99,6 @@ function carteApprenant(apprenant, index){
     ajout.classList.add("d-none")
     btnModifier.classList.remove("d-none")
     btnModifier.dataset.id = id
-    console.log(id);
     btnModifier.dataset.index = index
   })
 }
@@ -113,7 +111,7 @@ btnModifier.addEventListener("click", (event) => {
   const Email = carte.querySelector(".email")
   const Bio = carte.querySelector(".profil-body")
   const Niveau = carte.querySelector(".profil-position")
-  
+
   const apprenant = {}
   apprenant.nom = inputNom.value
   apprenant.prenom = inputPrenom.value
@@ -121,7 +119,6 @@ btnModifier.addEventListener("click", (event) => {
   apprenant.biographie = inputBiographie.value
   apprenant.niveau = inputNiveau.value
   tab.splice(index, 1, apprenant)
-  console.log(tab);
 
   nomComplet.dataset.nom = inputNom.value
   nomComplet.dataset.prenom = inputPrenom.value

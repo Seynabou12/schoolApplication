@@ -4,7 +4,11 @@ body{
     background: linear-gradient(135deg, #f8f5f6, #dbd8d9);
 }
 .alert{
-    background: linear-gradient(135deg, #ffb4b4, #f3c3db);
+    background: linear-gradient(135deg, #ce0033, #ee7795);
+}
+.alert-heading{
+    color: #fff;
+    font-size: 30px;
 }
 .alert h6{
     color: white;
@@ -27,9 +31,10 @@ body{
     content: '';
     display: block;
     bottom: 0;
+    top: 5;
     height: 3px;
     width: 30px;
-    background: linear-gradient(135deg, #ce0033, #ee7795);
+    background: linear-gradient(135deg, #f8f5f6, #dbd8d9);
 }
 .containe .title{
     font-size: 25px;
@@ -63,14 +68,14 @@ body{
 }
 .btn-save{
     height: 30px;
-    color: #FFF;
+    color: #ce0033;
     justify-content: center;
     margin-left: 70px;
     font-size: 10px;
     font-weight: 500;
     margin-top: 5px;
     border-radius: 5px;
-    background: linear-gradient(135deg, #ce0033, #ee7795);
+    background: linear-gradient(135deg, #f8f5f6, #dbd8d9);
 }
 form .form-group input{
     font-size: 10px;
@@ -86,6 +91,11 @@ form .form-group input{
 .carte{
     line-height: 1;
     flex-wrap: wrap;
+    background-color: #ce0033;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgb(0, 0, 0.2);
+    color: #fff;
 }
 .card{
     box-shadow: 0 0 20px rgb(0, 0, 0.2);
