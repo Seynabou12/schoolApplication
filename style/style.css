@@ -5,6 +5,7 @@ body{
 }
 .alert{
     background: linear-gradient(135deg, #ce0033, #ee7795);
+    
 }
 .alert-heading{
     color: #fff;

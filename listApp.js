@@ -150,27 +150,3 @@ function carteApprenant(apprenant) {
   const details = document.querySelector(`#detail${id}`);
 
 }
-
-
-
-
-// const competence1 = document.querySelector("#maquette")
-// const competence2 = document.querySelect("#baseD")
-// const competence3 = document.querySelect("#frontBack")
-// const competence4 = document.querySelect("#CompAcces")
-// const competence5 = document.querySelect("#InterStat")
-// const inputMaquette = competence1.value
-// const inputBaseD = competence2.value
-// const inputFrontB = competence3.value
-// const inputCompAc = competence4.value
-// const inputInterStat = competence5.value
-// const newApprenant = {
-//   compt1: inputMaquette,
-//   compt2: inputBaseD,
-//   compt3: inputFrontB,
-//   compt4: inputCompAc,
-//   compt5: inputInterStat
-// }
-
-
-/*  */
