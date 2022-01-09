@@ -1,7 +1,7 @@
 const API_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYzOTU4OTY2NiwiZXhwIjoxOTU1MTY1NjY2fQ.61uxHqbNW70gKjOYqYVZ_xrG7sZlocp8vy37SSf2KHM"
 const API_URL = "https://begawfkjokyyfiqpcwzp.supabase.co/rest/v1/Apprenant"
 
-//Récuperer les éléments du DOM
+//Récuperer les éléments du Formulaire
 var error
 //const listApprenant = []
 const formulaire = document.getElementById("formulaire")
@@ -18,6 +18,12 @@ const ajout = document.querySelector(".btn-ajout")
 const btnModifier = document.querySelector(".btn-edit")
 const redirection = document.querySelector(".liste")
 let tab = []
+
+const competence1 = document.querySelector("#maquette")
+const competence2 = document.querySelector("#baseD")
+const competence3 = document.querySelector("#frontBack")
+const competence4 = document.querySelector("#CompAcces")
+const competence5 = document.querySelector("#InterStat")
 
 // RECUPERATION DES INFORMATIONS DU FORMULAIRE
 formulaire.addEventListener("submit", (event) => {
@@ -36,13 +42,24 @@ formulaire.addEventListener("submit", (event) => {
   const emailSaisi = inputEmail.value
   const biographieSaisi = inputBiographie.value
   const niveauSaisi = inputNiveau.value
+  const inputMaquette = competence1.value
+  const inputBaseD = competence2.value
+  const inputFrontB = competence3.value
+  const inputCompAc = competence4.value
+  const inputInterStat = competence5.value
   const newApprenant = {
     prenom: prenomSaisi,
     nom: nomSaisi,
     email: emailSaisi,
     biographie: biographieSaisi,
-    niveau: niveauSaisi
+    niveau: niveauSaisi,
+    compt1: inputMaquette,
+    compt2: inputBaseD,
+    compt3: inputFrontB,
+    compt4: inputCompAc,
+    compt5: inputInterStat
   }
+
   tab.push(newApprenant);
   console.log(tab);
   carteApprenant(newApprenant, tab.length-1)
