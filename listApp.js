@@ -106,7 +106,6 @@ function carteApprenant(apprenant) {
             <div class=" niveau align-items-center font-weight-bold">
               <strong>COMPETENCES</strong>
             </div>
-            
               <div class="font-weight-bold mb-2">
               <p class="mb-1">Maquetter une Application</p>
               <div class="progress">

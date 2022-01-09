@@ -79,7 +79,7 @@ body{
     background: linear-gradient(135deg, #f8f5f6, #dbd8d9);
 }
 form .form-group input{
-    font-size: 10px;
+    font-size: 15px;
 }
 .form-group input:focus,
 .form-group input:invalid{
