@@ -27,30 +27,6 @@ function carteApprenant(apprenant) {
   let id = apprenant.id;
   const cartes = document.querySelector("#cartes");
 
-
-  // let niveauHtml = 0
-  // let niveauCss = 0
-  // let niveauJavaScript = 0
-  // let softSkills = 0
-
-  // if (apprenant.niveau == "Niveau Intermédiaire") {
-  //   niveauHtml = 40
-  //   niveauCss = 30
-  //   niveauJavaScript = 20
-  //   softSkills = 20
-  // }
-  // else if (apprenant.niveau == "Nivau Avancé") {
-  //   niveauHtml = 50
-  //   niveauCss = 50
-  //   niveauJavaScript = 60
-  //   softSkills = 50
-  // }
-  // else {
-  //   niveauHtml = 20
-  //   niveauCss = 10
-  //   niveauJavaScript = 10
-  //   softSkills = 10
-  // }
   cartes.insertAdjacentHTML(
     "beforeend",
      `<div class="col my-4 mt-4">
